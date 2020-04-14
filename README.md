@@ -50,7 +50,7 @@ https://github.com/kubernetes/dashboard/blob/master/docs/user/installation.md
 
 Installation script:  
 ```
-kubectl create -f https://raw.githubusercontent.com/sraillard/test-k3s/install-dashboard-full-admin-nodeport-v2.0.0-rc7.yaml
+kubectl create -f https://raw.githubusercontent.com/sraillard/test-k3s/master/install-dashboard-full-admin-nodeport-v2.0.0-rc7.yaml
 ```
 
 Modifications:

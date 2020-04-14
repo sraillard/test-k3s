@@ -57,7 +57,7 @@ Modifications:
 * Service is ***directly exposed*** as nodePort on port TCP/30081 for direct web connection!
 * ClusterRole `kubernetes-dashboard` is having ***full cluster admin*** rights!
 
-To remove the dashboard, simply remove its namespace:
+To remove the dashboard, remove its namespace and global resources:
 ```
 kubectl delete namespace kubernetes-dashboard
 kubectl delete clusterrolebindings kubernetes-dashboard

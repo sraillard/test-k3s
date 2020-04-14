@@ -42,8 +42,8 @@ Checks:
 Installing the dashboard
 ------------------------
 
-Dashboard installation yaml based on alternative official file:
-`https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc7/aio/deploy/alternative.yaml`
+Dashboard installation yaml based on alternative official file:  
+https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc7/aio/deploy/alternative.yaml
 
 More information about the different options is available here:  
 https://github.com/kubernetes/dashboard/blob/master/docs/user/installation.md
@@ -56,3 +56,8 @@ kubectl create -f https://raw.githubusercontent.com/sraillard/test-k3s/install-d
 Modifications:
 * Service is ***directly exposed*** as nodePort on port TCP/30081 for direct web connection!
 * ClusterRole `kubernetes-dashboard` is having ***full cluster admin*** rights!
+
+To remove the dashboard, simply remove its namespace:
+```
+kubectl delete ns kubernetes-dashboard
+```

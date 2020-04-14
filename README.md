@@ -67,3 +67,13 @@ kubectl delete namespace kubernetes-dashboard
 kubectl delete clusterrolebindings kubernetes-dashboard
 kubectl delete clusterroles kubernetes-dashboard
 ```
+
+Installing the nginx ingress controller
+---------------------------------------
+
+https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/index.md
+https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/baremetal.md
+
+https://kubernetes.github.io/ingress-nginx/deploy/baremetal/
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml

@@ -56,6 +56,10 @@ kubectl create -f https://raw.githubusercontent.com/sraillard/test-k3s/master/in
 Modifications:
 * Service is ***directly exposed*** as nodePort on port TCP/30081 for direct web connection!
 * ClusterRole `kubernetes-dashboard` is having ***full cluster admin*** rights!
+* In the dashboard deployment, change the container arguments:
+  - Remove `--enable-insecure-login`
+  - Add `--enable-skip-login`
+  - Add `--disable-settings-authorizer`
 
 To remove the dashboard, remove its namespace and global resources:
 ```

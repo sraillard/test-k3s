@@ -59,5 +59,7 @@ Modifications:
 
 To remove the dashboard, simply remove its namespace:
 ```
-kubectl delete ns kubernetes-dashboard
+kubectl delete namespace kubernetes-dashboard
+kubectl delete clusterrolebindings kubernetes-dashboard
+kubectl delete clusterroles kubernetes-dashboard
 ```

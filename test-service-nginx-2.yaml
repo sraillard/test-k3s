@@ -10,8 +10,8 @@ spec:
   type: NodePort
   sessionAffinity: None
   externalTrafficPolicy: Local
-  externalIPs:
-  - 192.168.1.52
+#  externalIPs:
+#  - 192.168.1.52
   ports:
     - name: http
       nodePort: 32001

@@ -72,8 +72,15 @@ Installing the nginx ingress controller
 ---------------------------------------
 
 https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/index.md
+
 https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/baremetal.md
 
 https://kubernetes.github.io/ingress-nginx/deploy/baremetal/
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.30.0/deploy/static/mandatory.yaml
+
+netstat -lnt4
+
+kubectl delete -n ingress-nginx service ingress-nginx
+
+kubectl apply -f test-service-nginx-2.yaml

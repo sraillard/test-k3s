@@ -85,11 +85,13 @@ There are different options to expose the ingress controller (that is a Nginx da
 * Use the ***HostNetwork***: In that case, service isn't needed, and the container directly bind the listening port on the node. This is the most direct option (a host port and IP can be specified). Nginx ingress needs a service definition or it will input a lot of error messages! So a service definition must be added even if it isn't needed.
 * Use a ***NodePort*** service: IP source isn't preserved due to NAT and only high ports can be exposed (ports TCP/80 and TCP/443 can't be exposed)
 
-Installation option #1 using the LoadBalancer:
+Regarding k3s and its default LoadBalancer, it seems to support exposing multiple services from different deployments on the same IP address.
+
+Installation option #1 using the ***LoadBalancer***:
 * Use the original mandatory file: `kubectl apply -f https://raw.githubusercontent.com/sraillard/test-k3s/master/install-ingress-nginx-mandatory-v0.30.0.yaml`
 * Create the LoadBalancer service: `kubectl apply -f https://raw.githubusercontent.com/sraillard/test-k3s/master/install-ingress-nginx-service-loadbalancer-local.yaml`
 
-Installation option #2 using the HostNetwork:
+Installation option #2 using the ***HostNetwork***:
 * Use the modified mandatory file: `kubectl apply -f https://raw.githubusercontent.com/sraillard/test-k3s/master/install-ingress-nginx-mandatory-hostnetwork-internaldns-v0.30.0.yaml`
 * At the pod level:
   - `hostNetwork: true` was added to use the node network directly
@@ -98,7 +100,7 @@ Installation option #2 using the HostNetwork:
   - `hostPort: 80`  and `hostPort: 443` were added so the port will be bound directly on the host network with address 0.0.0.0 if `hostIP` isn't specified.
 * An internal service was added to prevent the pod complaining
 
-Installation option #3 using the NodePort:
+Installation option #3 using the ***NodePort***:
 * Use the original mandatory file: `kubectl apply -f https://raw.githubusercontent.com/sraillard/test-k3s/master/install-ingress-nginx-mandatory-v0.30.0.yaml`
 * Create the NodePort service: `kubectl apply -f https://raw.githubusercontent.com/sraillard/test-k3s/master/install-ingress-nginx-service-nodeport.yaml`
 

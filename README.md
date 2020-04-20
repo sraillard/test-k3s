@@ -39,6 +39,11 @@ Checks:
 * `kubectl get pods -A`
 * `kubectl top pods -A`
 
+To remove k3s:  
+```
+k3s-uninstall.sh
+```
+
 Installing the dashboard
 ------------------------
 
@@ -114,3 +119,16 @@ kubectl delete NameSpace ingress-nginx
 kubectl delete ClusterRole nginx-ingress-clusterrole
 kubectl delete ClusterRoleBinding nginx-ingress-clusterrole-nisa-binding
 ```
+
+Local path provisionner
+-----------------------
+
+Documentation:  
+https://github.com/rancher/local-path-provisioner/blob/master/README.md
+
+* Enabled by default
+* Only support ReadWriteOnce (the volume can be mounted as read-write by a single node)
+* Capacity (size) is ignored
+* Data is deleted when the PVC is deleted (no retention)
+* Data is stored in /var/lib/rancher/k3s/storage
+* PVC can be shared by all pods of the same namespace

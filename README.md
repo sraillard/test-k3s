@@ -123,6 +123,8 @@ kubectl delete ClusterRoleBinding nginx-ingress-clusterrole-nisa-binding
 Local path provisionner
 -----------------------
 
+Preinstalled dynamic PV (Persistent Volume) provisionner for PVC (Persistent Volume Claim).
+
 Documentation:  
 https://github.com/rancher/local-path-provisioner/blob/master/README.md
 

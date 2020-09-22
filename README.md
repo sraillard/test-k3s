@@ -134,3 +134,34 @@ https://github.com/rancher/local-path-provisioner/blob/master/README.md
 * Data is deleted when the PVC is deleted (no retention)
 * Data is stored in /var/lib/rancher/k3s/storage
 * PVC can be shared by all pods of the same namespace
+
+AWS ECR Private registry authentication
+---------------------------------------
+
+It's either possible to use an operator like https://github.com/upmc-enterprises/registry-creds or to write the credentials in a special file.
+
+The file should have the following path: `/etc/rancher/k3s/registries.yaml`
+
+Example of file content: 
+```
+mirrors:
+  xxxxxxxxxxxx.dkr.ecr.eu-west-3.amazonaws.com:
+    endpoint:
+    - https://xxxxxxxxxxxx.dkr.ecr.eu-west-3.amazonaws.com
+configs:
+  xxxxxxxxxxxx.dkr.ecr.eu-west-3.amazonaws.com:
+    auth:
+      username: AWS
+      password: yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+```
+
+k3s daemon must be restarted to read the file.
+See https://rancher.com/docs/k3s/latest/en/installation/private-registry/
+
+To get the password, use the AWS CLI command `aws ecr get-login --no-include-email`.  
+Warning: the password generated is only valid for 12 hours!
+
+
+
+
+
